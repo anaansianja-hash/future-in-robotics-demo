@@ -1,0 +1,62 @@
+<section id="registration">
+  <h2>Team Registration – Demonstration</h2>
+
+  <p>
+    EDUCATIONAL SIMULATION:
+    Use fictional information only.
+    No information will be submitted or stored.
+  </p>
+
+  <form id="demoForm">
+
+    <label for="team">Team Name</label>
+    <input
+      id="team"
+      type="text"
+      placeholder="Example Robotics Team"
+    >
+
+    <label for="organization">Organization</label>
+    <input
+      id="organization"
+      type="text"
+      placeholder="Example Research Institute"
+    >
+
+    <label for="email">Contact Email</label>
+    <input
+      id="email"
+      type="text"
+      placeholder="participant@example.com"
+    >
+
+    <label for="category">Competition Category</label>
+    <select id="category">
+      <option>Autonomous Navigation</option>
+      <option>Transport & Logistics</option>
+      <option>Search & Rescue</option>
+    </select>
+
+    <button type="submit">
+      Submit Demo Registration
+    </button>
+
+  </form>
+
+  <p id="result"></p>
+</section>
+
+<script>
+  document
+    .getElementById("demoForm")
+    .addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      document.getElementById("result").textContent =
+        "Educational simulation only. " +
+        "No information was submitted or stored.";
+
+      this.reset();
+    });
+</script>
