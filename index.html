@@ -1,62 +1,394 @@
-<section id="registration">
-  <h2>Team Registration – Demonstration</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Future in Robotics | Academic Demonstration</title>
 
-  <p>
-    EDUCATIONAL SIMULATION:
-    Use fictional information only.
-    No information will be submitted or stored.
-  </p>
+  <style>
+    * { box-sizing: border-box; }
 
-  <form id="demoForm">
+    html { scroll-behavior: smooth; }
 
-    <label for="team">Team Name</label>
-    <input
-      id="team"
-      type="text"
-      placeholder="Example Robotics Team"
-    >
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #eef3f8;
+      color: #183047;
+      line-height: 1.6;
+    }
 
-    <label for="organization">Organization</label>
-    <input
-      id="organization"
-      type="text"
-      placeholder="Example Research Institute"
-    >
+    .notice {
+      background: #fff2c6;
+      color: #563e00;
+      padding: 12px 20px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+    }
 
-    <label for="email">Contact Email</label>
-    <input
-      id="email"
-      type="text"
-      placeholder="participant@example.com"
-    >
+    header {
+      background: #10273c;
+      color: white;
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-    <label for="category">Competition Category</label>
-    <select id="category">
-      <option>Autonomous Navigation</option>
-      <option>Transport & Logistics</option>
-      <option>Search & Rescue</option>
-    </select>
+    .logo {
+      font-size: 21px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
 
-    <button type="submit">
-      Submit Demo Registration
-    </button>
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
 
-  </form>
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
 
-  <p id="result"></p>
-</section>
+    nav a:hover { color: #6ce0dc; }
 
-<script>
-  document
-    .getElementById("demoForm")
-    .addEventListener("submit", function(event) {
+    .hero {
+      background: linear-gradient(135deg, #10273c, #176577);
+      color: white;
+      text-align: center;
+      padding: 105px 20px;
+    }
 
-      event.preventDefault();
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 55px);
+      line-height: 1.2;
+      margin: 0 0 20px;
+    }
 
-      document.getElementById("result").textContent =
-        "Educational simulation only. " +
-        "No information was submitted or stored.";
+    .hero p {
+      max-width: 680px;
+      margin: 0 auto 28px;
+      font-size: 18px;
+    }
 
-      this.reset();
-    });
-</script>
+    .button {
+      display: inline-block;
+      border: 0;
+      background: #18a7a7;
+      color: white;
+      padding: 13px 24px;
+      text-decoration: none;
+      border-radius: 7px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .button:hover { background: #137f83; }
+
+    section {
+      padding: 65px 8%;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 30px;
+      margin-top: 0;
+      color: #10273c;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 28px;
+      border-radius: 12px;
+      border: 1px solid #dae4eb;
+    }
+
+    .card h3 { color: #176577; }
+
+    .competition {
+      background: #e0ebf1;
+    }
+
+    .registration-card {
+      background: white;
+      border-radius: 12px;
+      padding: 35px;
+      max-width: 650px;
+      margin: 25px auto;
+      border: 1px solid #d8e2e8;
+    }
+
+    label {
+      display: block;
+      margin-top: 17px;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+
+    input, select {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #aebfcb;
+      border-radius: 6px;
+    }
+
+    input:focus, select:focus {
+      outline: 2px solid #18a7a7;
+      outline-offset: 2px;
+    }
+
+    form button { margin-top: 24px; }
+
+    .result {
+      color: #176577;
+      font-weight: bold;
+      margin-top: 18px;
+    }
+
+    footer {
+      background: #10273c;
+      color: white;
+      padding: 30px 8%;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .cards { grid-template-columns: 1fr; }
+      header { justify-content: center; text-align: center; }
+      nav { justify-content: center; }
+      section { padding: 45px 6%; }
+      .hero { padding: 70px 20px; }
+      .registration-card { padding: 22px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="notice">
+    EDUCATIONAL CYBERSECURITY SIMULATION —
+    Fictional organization and event.
+    Do not enter real personal or financial information.
+  </div>
+
+  <header>
+    <div class="logo">FUTURE IN ROBOTICS</div>
+
+    <nav aria-label="Main navigation">
+      <a href="#home">HOME</a>
+      <a href="#about">ABOUT US</a>
+      <a href="#competition">COMPETITION</a>
+      <a href="#registration">REGISTRATION</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="hero" id="home">
+      <h1>International Autonomous<br>Robotics Challenge 2027</h1>
+
+      <p>
+        Exploring the future of autonomous ground robotics
+        through innovation, research and humanitarian applications.
+      </p>
+
+      <a class="button" href="#competition">
+        EXPLORE THE COMPETITION
+      </a>
+    </div>
+
+    <section id="about">
+      <div class="container">
+        <h2>About Future in Robotics</h2>
+
+        <p>
+          Future in Robotics is a fictional organization created
+          for an academic cybersecurity simulation.
+          Its proposed mission is to explore innovative
+          applications of autonomous robotic systems,
+          especially in environments where human safety is at risk.
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Autonomous Systems</h3>
+            <p>
+              Research into autonomous navigation,
+              unmanned ground vehicles and robotic mobility.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Humanitarian Robotics</h3>
+            <p>
+              Exploring robotic assistance in disaster response,
+              emergency operations and search and rescue.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Research & Innovation</h3>
+            <p>
+              Presenting fictional opportunities for collaboration
+              between researchers and robotics teams.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="competition" id="competition">
+      <div class="container">
+        <h2>Competition Categories</h2>
+
+        <p>
+          The International Autonomous Robotics Challenge 2027
+          is a fictional academic event designed to demonstrate
+          how robotics competitions can be represented online.
+        </p>
+
+        <div class="cards">
+
+          <div class="card">
+            <h3>01 — Autonomous Navigation</h3>
+            <p>
+              Demonstration of autonomous navigation
+              through a predefined obstacle course.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>02 — Transport & Logistics</h3>
+            <p>
+              Demonstration of unmanned ground vehicles
+              transporting equipment and supplies
+              across challenging terrain.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>03 — Search & Rescue</h3>
+            <p>
+              Demonstration of robotic technologies
+              supporting emergency response
+              and search operations.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="registration">
+      <div class="container">
+        <h2 style="text-align:center">
+          Team Registration — Demonstration
+        </h2>
+
+        <p style="text-align:center">
+          This form is part of an educational simulation.
+          Use fictional information only.
+        </p>
+
+        <div class="registration-card">
+          <form id="demoForm" autocomplete="off">
+
+            <label for="team">Team Name</label>
+            <input
+              id="team"
+              type="text"
+              placeholder="Example Robotics Team"
+            >
+
+            <label for="organization">Organization</label>
+            <input
+              id="organization"
+              type="text"
+              placeholder="Example Research Institute"
+            >
+
+            <label for="contact">Contact Person</label>
+            <input
+              id="contact"
+              type="text"
+              placeholder="Test Participant"
+            >
+
+            <label for="email">Contact Email</label>
+            <input
+              id="email"
+              type="text"
+              placeholder="participant@example.com"
+            >
+
+            <label for="vehicle">Vehicle Model</label>
+            <input
+              id="vehicle"
+              type="text"
+              placeholder="Example UGV-01"
+            >
+
+            <label for="category">Competition Category</label>
+            <select id="category">
+              <option>Autonomous Navigation</option>
+              <option>Transport & Logistics</option>
+              <option>Search & Rescue</option>
+            </select>
+
+            <button class="button" type="submit">
+              SUBMIT DEMO REGISTRATION
+            </button>
+
+          </form>
+
+          <p class="result" id="result" role="status"></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <strong>FUTURE IN ROBOTICS</strong>
+
+    <p>
+      Academic cybersecurity demonstration.
+      This is not a real event or registration service.
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById("demoForm")
+      .addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        document.getElementById("result").textContent =
+          "Educational simulation only. " +
+          "No information was submitted or stored.";
+
+        this.reset();
+      });
+  </script>
+
+</body>
+</html>
